@@ -34,6 +34,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/profile', 'ProfileController@update')
         ->name('profile.update');
 
-    Route::resource('/timetables', 'VisitTimeLineController');
+    Route::resource('/visitTimeLines', 'VisitTimeLineController');
 
 });

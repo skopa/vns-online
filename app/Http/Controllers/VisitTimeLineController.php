@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VisitTimeLineRequest;
 use App\User;
 use App\VisitTimeLine;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class VisitTimeLineController extends Controller
@@ -19,73 +19,65 @@ class VisitTimeLineController extends Controller
         /** @var User $user */
         $user = Auth::user();
         return view('pages.timetable', [
-            'timetable' => $user->visitTimeLines
+            'timetables' => $user->visitTimeLines
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param VisitTimeLineRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(VisitTimeLineRequest $request)
     {
-        //
+        /** @var User $user */
+        $user = Auth::user();
+        $user->visitTimeLines()->create($request->all(['from', 'to', 'clicks_per_period']));
+        return redirect()->route('visitTimeLines.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\VisitTimeLine  $visitTimeLine
+     * @param VisitTimeLine $visitTimeLine
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(VisitTimeLine $visitTimeLine)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\VisitTimeLine  $visitTimeLine
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(VisitTimeLine $visitTimeLine)
-    {
-        //
+        $this->authorize('view', $visitTimeLine);
+        return view('pages.timetable-show', [
+            'visitTimeLine' => $visitTimeLine
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\VisitTimeLine  $visitTimeLine
-     * @return \Illuminate\Http\Response
+     * @param VisitTimeLineRequest $request
+     * @param  \App\VisitTimeLine $visitTimeLine
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(Request $request, VisitTimeLine $visitTimeLine)
+    public function update(VisitTimeLineRequest $request, VisitTimeLine $visitTimeLine)
     {
-        //
+        $this->authorize('update', $visitTimeLine);
+        $visitTimeLine->update($request->all(['from', 'to', 'clicks_per_period']));
+        return redirect()->route('visitTimeLines.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\VisitTimeLine  $visitTimeLine
+     * @param  \App\VisitTimeLine $visitTimeLine
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(VisitTimeLine $visitTimeLine)
     {
-        //
+        $this->authorize('delete', $visitTimeLine);
+        $visitTimeLine->delete();
+        return redirect()->route('visitTimeLines.index');
     }
 }

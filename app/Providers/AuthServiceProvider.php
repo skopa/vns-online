@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Link;
+use App\Policies\LinkPolicy;
+use App\Policies\VisitTimeLinePolicy;
+use App\VisitTimeLine;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -13,7 +17,9 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        VisitTimeLine::class => VisitTimeLinePolicy::class,
+        Link::class => LinkPolicy::class,
+
     ];
 
     /**

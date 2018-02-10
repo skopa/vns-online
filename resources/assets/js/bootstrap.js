@@ -1,4 +1,3 @@
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -6,7 +5,9 @@
  */
 
 try {
-    window.$ = window.jQuery = require('jquery');
+    $ = window.$ = window.jQuery = require('jquery');
 
     require('materialize-css');
-} catch (e) {}
+    require('materialize-css/js/date_picker/picker.time')
+} catch (e) {
+}
