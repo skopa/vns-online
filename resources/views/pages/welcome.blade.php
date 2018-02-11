@@ -10,7 +10,7 @@
                 @auth
                     <a class="waves-effect waves-light btn-large" href="{{ url('/home') }}">Home</a>
                 @else
-                    <a class="waves-effect waves-light btn-large" href="{{ route('login') }}">Login</>
+                    <a class="waves-effect waves-light btn-large" href="{{ route('login') }}">Login</a>
                 @endauth
             </div>
         </div>
