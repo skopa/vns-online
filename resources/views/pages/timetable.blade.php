@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">Exists Visit Timetables</span>
-                    <table>
+                    <table class="responsive-table">
                         <thead>
                         <tr>
                             <th>#</th>
@@ -27,7 +27,7 @@
                                 <td>
                                     <a class="btn waves-effect waves-light"
                                        href="{{ route('visitTimeLines.show', ['visitTimeLine' => $timetable->id]) }}">Edit</a>
-                                    &nbsp;&nbsp;
+                                    &nbsp;
                                     <button class="btn waves-effect waves-light"
                                             onclick="$('form[data-id=\'{{$timetable->id}}\']').submit()">
                                         delete

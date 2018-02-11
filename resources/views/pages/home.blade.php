@@ -28,7 +28,7 @@
                     <span class="card-title">Timetables</span>
                 </div>
                 <div class="card-action">
-                    <h5>2 pc.</h5>
+                    <h5>{{ $visitTimeLines }}</h5>
                 </div>
             </div>
         </div>

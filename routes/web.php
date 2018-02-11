@@ -24,9 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/logout', 'AuthController@logout')->name('logout');
 
-    Route::get('/home', function () {
-        return view('pages.home');
-    })->name('home');
+    Route::get('/home', 'ProfileController@home')->name('home');
 
     Route::get('/profile', 'ProfileController@show')
         ->name('profile.show');
@@ -36,4 +34,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('/visitTimeLines', 'VisitTimeLineController');
 
+    Route::resource('/links', 'LinkController');
+
+    Route::post('/links/preview', 'LinkController@preview');
+
+    Route::get('/linkClicks', 'LinkClickController')->name('clicks');
 });

@@ -17,7 +17,8 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->string('link');
             $table->string('comment')->nullable();
-            $table->unsignedInteger('visits_count');
+            $table->boolean('is_enabled')->default(0);
+            $table->unsignedInteger('visits_count')->default(0);
             $table->unsignedInteger('visit_time_line_id');
             $table->foreign('visit_time_line_id')
                 ->references('id')

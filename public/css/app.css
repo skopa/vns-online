@@ -9897,3 +9897,8 @@ nav .brand-logo {
   width: 100%;
 }
 
+td .btn,
+td .btn-large {
+  padding: 0 0.5rem;
+}
+

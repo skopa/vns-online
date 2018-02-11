@@ -14,7 +14,8 @@ use Illuminate\Support\Collection;
  * @property string vns_password
  * @property string cookies_file
  * @property bool is_enabled
- * @property Collection|VisitTimeLine visitTimeLines
+ * @property Collection|array|VisitTimeLine visitTimeLines
+ * @property Collection|array|Link links
  * @mixin Model
  */
 class User extends Authenticatable

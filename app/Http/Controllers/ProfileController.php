@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+    public function home()
+    {
+        /** @var User $user */
+        $user = Auth::user();
+        return view('pages.home', [
+            'visitTimeLines' => $user->visitTimeLines()->count(),
+            'links' => $user->links()->count(),
+        ]);
+    }
+
     public function show()
     {
         return view('pages.profile', [

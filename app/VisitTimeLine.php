@@ -19,4 +19,9 @@ class VisitTimeLine extends Model
     ];
 
     protected $hidden = [];
+
+    public function links()
+    {
+        return $this->hasMany(Link::class);
+    }
 }
