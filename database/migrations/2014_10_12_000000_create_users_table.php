@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('vns_email')->nullable();
             $table->string('vns_password')->nullable();
+            $table->integer('available_clicks')->default(0);
             $table->boolean('is_enabled')->default(0);
             $table->string('cookies_file')->nullable();
             $table->rememberToken();

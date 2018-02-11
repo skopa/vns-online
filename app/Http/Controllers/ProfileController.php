@@ -17,6 +17,7 @@ class ProfileController extends Controller
             'visitTimeLines' => $user->visitTimeLines()->count(),
             'links' => $user->links()->count(),
             'clicks' => $user->links()->sum('visits_count'),
+            'available_clicks' => $user->available_clicks,
             'time' => 100,
         ]);
     }

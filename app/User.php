@@ -16,6 +16,7 @@ use Illuminate\Support\Collection;
  * @property bool is_enabled
  * @property Collection|array|VisitTimeLine visitTimeLines
  * @property Collection|array|Link links
+ * @property int available_clicks
  * @mixin Model
  */
 class User extends Authenticatable
@@ -40,10 +41,14 @@ class User extends Authenticatable
         'cookies_file'
     ];
 
+    protected $attributes = [
+        'available_clicks' => 20
+    ];
+
     public function setVnsEmailAttribute($value)
     {
         $this->attributes['vns_email'] = $value;
-        $this->attributes['cookies_file'] = $value . '_' . str_random() . 'cookies';
+        $this->attributes['cookies_file'] = $value . '_' . str_random(16) . '.cookies';
     }
 
     public function setEmailAttribute($value)
