@@ -16,6 +16,8 @@ class ProfileController extends Controller
         return view('pages.home', [
             'visitTimeLines' => $user->visitTimeLines()->count(),
             'links' => $user->links()->count(),
+            'clicks' => $user->links()->sum('visits_count'),
+            'time' => 100,
         ]);
     }
 

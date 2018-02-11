@@ -8,7 +8,7 @@
                     <span class="card-title">Active Time</span>
                 </div>
                 <div class="card-action">
-                    <h5>122 minutes</h5>
+                    <h5>{{ number_format($time / 60, 2) }} minutes</h5>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     <span class="card-title">Clicks</span>
                 </div>
                 <div class="card-action">
-                    <h5>252 Times</h5>
+                    <h5>{{ $clicks }} Times</h5>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     <span class="card-title">Timetables</span>
                 </div>
                 <div class="card-action">
-                    <h5>{{ $visitTimeLines }}</h5>
+                    <h5>{{ $visitTimeLines }} pc.</h5>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                     <span class="card-title">Links</span>
                 </div>
                 <div class="card-action">
-                    <h5>12 pc.</h5>
+                    <h5>{{ $links }} pc.</h5>
                 </div>
             </div>
         </div>

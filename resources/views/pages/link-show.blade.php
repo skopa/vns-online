@@ -38,8 +38,8 @@
                                         <option value="" disabled>Choose your time line</option>
                                         @foreach($visitTimeLines as $timeLine)
                                             <option value="{{ $timeLine->id }}"
-                                                    {{ $timeLine->id==$link->link_time_line_id?'selected':'' }}
-                                            >{{ $timeLine->from }} - {{ $timeLine->to }}</option>
+                                                    {{ $timeLine->id==$link->visit_time_line_id?'selected':'' }}
+                                            >{{ $timeLine->period }}</option>
                                         @endforeach
                                     </select>
                                     <label for="visitTimeLine">Visit TimeLine</label>

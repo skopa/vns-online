@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Link extends Model
 {
-    protected $fillable = ['link', 'comment', 'is_enabled'];
+    protected $fillable = ['link', 'comment', 'is_enabled', 'visit_time_line_id'];
 
     public function visitTimeLine()
     {

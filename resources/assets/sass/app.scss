@@ -27,6 +27,12 @@ nav .brand-logo {
   width: 100%;
 }
 
-td .btn {
-  padding: 0 0.5rem;
+td {
+  .btn {
+    padding: 0 0.5rem;
+  }
+
+  .switch label .lever {
+    margin: 0;
+  }
 }

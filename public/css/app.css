@@ -9902,3 +9902,7 @@ td .btn-large {
   padding: 0 0.5rem;
 }
 
+td .switch label .lever {
+  margin: 0;
+}
+

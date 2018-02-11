@@ -24,4 +24,9 @@ class VisitTimeLine extends Model
     {
         return $this->hasMany(Link::class);
     }
+
+    public function getPeriodAttribute()
+    {
+        return $this->from . ' - ' . $this->to;
+    }
 }

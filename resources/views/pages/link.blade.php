@@ -23,7 +23,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $link->comment }}</td>
-                                <td>{{ $link->link }}</td>
+                                <td>{{ $link->link }}<br>({{ $link->visitTimeLine->period }})</td>
                                 <td>
                                     <div class="switch">
                                         <label>
