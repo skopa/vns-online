@@ -5,44 +5,44 @@
         <div class="col s6 m3">
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Online</span>
+                    <b>Online</b>
                     (VNS "online" time)
                 </div>
                 <div class="card-action">
-                    <h5>{{ number_format($time / 60, 2) }} minutes</h5>
+                    <b>{{ number_format($time / 60, 2) }} minutes</b>
                 </div>
             </div>
         </div>
         <div class="col s6 m3">
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Clicks</span>
+                    <b>Clicks</b>
                     (VNS total clicks)
                 </div>
                 <div class="card-action">
-                    <h5>{{ $clicks }} Times</h5>
+                    <b>{{ $clicks }} Times</b>
                 </div>
             </div>
         </div>
         <div class="col s6 m3">
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Available</span>
+                    <b>Available</b>
                     (Payed clicks)
                 </div>
                 <div class="card-action">
-                    <h5>{{ $available_clicks }} Times</h5>
+                    <b>{{ $available_clicks }} Times</b>
                 </div>
             </div>
         </div>
         <div class="col s6 m3">
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Links</span>
+                    <b>Links</b>
                     (Links to click)
                 </div>
                 <div class="card-action">
-                    <h5>{{ $links }} pc.</h5>
+                    <b>{{ $links }} pc.</b>
                 </div>
             </div>
         </div>
