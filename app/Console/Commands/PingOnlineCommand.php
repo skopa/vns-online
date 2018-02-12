@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Jobs\PingOnlineJob;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Database\Query\Builder;
 
@@ -40,12 +41,13 @@ class PingOnlineCommand extends Command
      */
     public function handle()
     {
+        $day = Carbon::now()->dayOfWeek;
         $users = User::query()
             ->where('is_enabled', 1)
-            ->whereHas('visitTimeLines', function ($q) {
+            ->whereHas('visitTimeLines', function ($q) use ($day) {
                 /** @var Builder $q */
                 $q
-                    ->whereRaw('`days` LIKE ' . date('N'))
+                    ->whereRaw('`days` LIKE ' . $day)
                     ->whereRaw('DATE_ADD(UTC_TIME(), INTERVAL 2 HOUR) BETWEEN `from` AND `to`');
             })
             ->with('lastAction')
