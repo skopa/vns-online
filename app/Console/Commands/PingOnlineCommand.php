@@ -70,7 +70,7 @@ class PingOnlineCommand extends Command
             }
         });
 
-        echo $count->count() . '/' . $users->count() . PHP_EOL;
+        echo'Day: '. $day . ' Will be updated/All active: '. $count->count() . '/' . $users->count() . PHP_EOL;
 
         return;
     }
