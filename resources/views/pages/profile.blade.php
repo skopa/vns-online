@@ -57,19 +57,19 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="input-field col s9">
-                                    <input disabled value="{{ $user->available_clicks }}" id="disabled" type="text"
-                                           class="validate">
-                                    <label for="disabled">Available clicks</label>
-                                </div>
-                                <div class="col s3">
-                                    <button class="btn waves-effect waves-light right" type="submit" name="action">Pay
-                                        more
-                                        <i class="material-icons right">pay</i>
-                                    </button>
-                                </div>
-                            </div>
+                            {{--<div class="row">--}}
+                                {{--<div class="input-field col s9">--}}
+                                    {{--<input disabled value="{{ $user->available_clicks }}" id="disabled" type="text"--}}
+                                           {{--class="validate">--}}
+                                    {{--<label for="disabled">Available clicks</label>--}}
+                                {{--</div>--}}
+                                {{--<div class="col s3">--}}
+                                    {{--<button class="btn waves-effect waves-light right" type="submit" name="action">Pay--}}
+                                        {{--more--}}
+                                        {{--<i class="material-icons right">pay</i>--}}
+                                    {{--</button>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
                             <div class="row">
                                 <div class="input-field col s12">
@@ -98,7 +98,7 @@
                                     :p</label>
                             </p>
 
-                            <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                            <button class="btn waves-effect waves-light right" type="submit" name="action">Save it!
                                 <i class="material-icons right">send</i>
                             </button>
 
