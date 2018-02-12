@@ -50,7 +50,7 @@ class PingOnlineCommand extends Command
         $count = 0;
 
         $users->each(function (User $user) use ($count) {
-            if (rand(1, 4) < (date('i') - $user->lastAction->created_at->minute)) {
+            if ($user->lastAction == null || rand(1, 4) < (date('i') - $user->lastAction->created_at->minute)) {
                 dispatch(new PingOnlineJob($user));
                 $count += 1;
             }
