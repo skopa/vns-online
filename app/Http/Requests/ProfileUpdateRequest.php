@@ -24,7 +24,7 @@ class ProfileUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'vns_email' => 'required|email',
+            'vns_email' => 'required|string',
             'vns_password' => 'required|string',
             'is_enabled' => 'boolean',
         ];
