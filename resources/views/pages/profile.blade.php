@@ -3,25 +3,28 @@
 @section('content')
     <div class="row">
         <div class="col s12 m10 offset-m1">
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content">
-                        <b>Pings</b><br>
-                        <small>(VNS "online" requests)</small>
-                    </div>
-                    <div class="card-action">
-                        <b>{{ $requests }} Times</b>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <b>Pings</b><br>
+                            <small>(VNS "online" requests)</small>
+                        </div>
+                        <div class="card-action">
+                            <b>{{ $requests }} Times</b>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content">
-                        <b>Clicks</b><br>
-                        <small>(VNS total clicks)</small>
-                    </div>
-                    <div class="card-action">
-                        <b>{{ $clicks }} Times</b>
+
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <b>Clicks</b><br>
+                            <small>(VNS total clicks)</small>
+                        </div>
+                        <div class="card-action">
+                            <b>{{ $clicks }} Times</b>
+                        </div>
                     </div>
                 </div>
             </div>
