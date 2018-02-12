@@ -60,7 +60,7 @@ class PingOnlineCommand extends Command
 
         $users->each(function (User $user) use ($count) {
             if ($user->lastAction == null || rand(1, 3) < $user->lastAction->created_at->diffInMinutes()) {
-                $command = base_path('artisan') . ' online:user ' . $user->id . ' ' . rand(10, 40);
+                $command = base_path('artisan') . ' online:user ' . $user->id . ' ' . rand(3, 30);
                 $log = storage_path('logs/cron.log');
                 exec('nohup php -f ' . $command . ' >> ' . $log . ' 2>&1 &');
 
