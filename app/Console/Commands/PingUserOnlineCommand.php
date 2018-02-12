@@ -39,8 +39,10 @@ class PingUserOnlineCommand extends Command
      */
     public function handle()
     {
+        echo 'Start pinging user ' . $this->argument('user') .
+            ' with delay ' . $this->argument('delay') .
+            '..' . PHP_EOL;
         sleep($this->argument('delay'));
-        echo 'Start pinging user ' . $this->argument('user') . '..' . PHP_EOL;
         dispatch(new PingOnlineJob(User::find($this->argument('user'))));
         return;
     }
