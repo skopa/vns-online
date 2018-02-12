@@ -19,13 +19,18 @@ class ProfileController extends Controller
             'clicks' => $user->links()->sum('visits_count'),
             'available_clicks' => $user->available_clicks,
             'time' => 100,
+            'requests' => $user->logs()->count(),
         ]);
     }
 
     public function show()
     {
+        /** @var User $user */
+        $user = Auth::user();
         return view('pages.profile', [
-            'user' => Auth::user()
+            'user' => $user,
+            'requests' => $user->logs()->count(),
+            'clicks' => $user->links()->sum('visits_count'),
         ]);
     }
 
