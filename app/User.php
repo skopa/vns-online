@@ -17,6 +17,9 @@ use Illuminate\Support\Collection;
  * @property Collection|array|VisitTimeLine visitTimeLines
  * @property Collection|array|Link links
  * @property int available_clicks
+ * @property-read mixed vns_credentials
+ * @property Collection|array|Log logs
+ * @property Log lastAction
  * @mixin Model
  */
 class User extends Authenticatable
@@ -65,5 +68,24 @@ class User extends Authenticatable
     public function links()
     {
         return $this->hasManyThrough(Link::class, VisitTimeLine::class);
+    }
+
+    public function getVnsCredentialsAttribute()
+    {
+        return [
+            'username' => $this->vns_email,
+            'password' => $this->vns_password,
+            'rememberusername' => 1,
+        ];
+    }
+
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
+
+    public function lastAction()
+    {
+        return $this->hasOne(Log::class)->orderBy('id', 'desc');
     }
 }

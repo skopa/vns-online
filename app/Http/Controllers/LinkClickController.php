@@ -19,7 +19,8 @@ class LinkClickController extends Controller
         /** @var User $user */
         $user = Auth::user();
         return view('pages.link-clicks', [
-            'clicks' => LinkClick::whereIn('link_id', $user->links->pluck('id'))
+            'clicks' => LinkClick::whereIn('link_id', $user->links->pluck('id')),
+            'events' => $user->logs,
         ]);
     }
 }
