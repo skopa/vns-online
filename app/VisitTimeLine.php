@@ -13,6 +13,7 @@ use Illuminate\Support\Collection;
  * @property int clicks_per_period
  * @property int user_id
  * @property Collection days
+ * @property string short_days
  */
 class VisitTimeLine extends Model
 {
@@ -29,7 +30,7 @@ class VisitTimeLine extends Model
 
     public function getPeriodAttribute()
     {
-        return $this->from . ' - ' . $this->to;
+        return $this->from . ' - ' . $this->to . ': ' .$this->short_days;
     }
 
     public function getDaysAttribute()
