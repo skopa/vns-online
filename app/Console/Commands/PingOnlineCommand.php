@@ -56,7 +56,7 @@ class PingOnlineCommand extends Command
             }
         });
 
-        echo $count;
+        echo $count . PHP_EOL;
 
         return;
     }
