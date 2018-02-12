@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Jobs\PingOnlineJob;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class PingOnlineCommand extends Command
@@ -47,16 +48,19 @@ class PingOnlineCommand extends Command
             ->with('lastAction')
             ->get();
 
-        $count = 0;
+        /**
+         * LifeHack!
+         */
+        $count = collect();
 
         $users->each(function (User $user) use ($count) {
-            if ($user->lastAction == null || rand(1, 4) < (date('i') - $user->lastAction->created_at->minute)) {
+            if ($user->lastAction == null || rand(1, 4) < $user->lastAction->created_at->diffInMinutes()) {
                 dispatch(new PingOnlineJob($user));
-                $count += 1;
+                $count->push(1);
             }
         });
 
-        echo $count . '/' . $users->count() . PHP_EOL;
+        echo $count->count() . '/' . $users->count() . PHP_EOL;
 
         return;
     }
