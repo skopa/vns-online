@@ -34,7 +34,48 @@
                                 </div>
                             </div>
 
-                            <p class="range-field">
+
+                            <p>
+                                <label>Select days of week</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="mon" value="1"
+                                       name="days[]" {{ $visitTimeLine->days->contains(1)?'checked="checked"':'' }}/>
+                                <label for="mon">Monday</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="tus" value="2"
+                                       name="days[]" {{ $visitTimeLine->days->contains(2)?'checked="checked"':'' }}/>
+                                <label for="tus">Tuesday</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="wed" value="3"
+                                       name="days[]" {{ $visitTimeLine->days->contains(3)?'checked="checked"':'' }}/>
+                                <label for="wed">Wednesday</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="thu" value="4"
+                                       name="days[]" {{ $visitTimeLine->days->contains(4)?'checked="checked"':'' }}/>
+                                <label for="thu">Thursday</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="fri" value="5"
+                                       name="days[]" {{ $visitTimeLine->days->contains(5)?'checked="checked"':'' }}/>
+                                <label for="fri">Friday</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="sat" value="6"
+                                       name="days[]" {{ $visitTimeLine->days->contains(6)?'checked="checked"':'' }}/>
+                                <label for="sat">Saturday</label>
+                            </p>
+                            <p>
+                                <input type="checkbox" id="sun" value="7"
+                                       name="days[]" {{ $visitTimeLine->days->contains(7)?'checked="checked"':'' }}/>
+                                <label for="sun">Sunday</label>
+                            </p>
+
+
+                            <p style="display: none" class="range-field">
                                 <label data-error="{{ $errors->first('clicks_per_period') }}"
                                        for="clicks_per_period">Clicks per session</label>
                                 <input type="range" id="clicks_per_period"

@@ -33,7 +33,7 @@ class VisitTimeLineController extends Controller
     {
         /** @var User $user */
         $user = Auth::user();
-        $user->visitTimeLines()->create($request->all(['from', 'to', 'clicks_per_period']));
+        $user->visitTimeLines()->create($request->all(['from', 'to', 'clicks_per_period', 'days']));
         return redirect()->route('visitTimeLines.index');
     }
 
@@ -63,7 +63,7 @@ class VisitTimeLineController extends Controller
     public function update(VisitTimeLineRequest $request, VisitTimeLine $visitTimeLine)
     {
         $this->authorize('update', $visitTimeLine);
-        $visitTimeLine->update($request->all(['from', 'to', 'clicks_per_period']));
+        $visitTimeLine->update($request->all(['from', 'to', 'clicks_per_period', 'days']));
         return redirect()->route('visitTimeLines.index');
     }
 
