@@ -46,7 +46,7 @@
                                            class="{{ $errors->has('vns_email')?'invalid':'' }}"
                                            name="vns_email" value="{{ old('vns_email', $user->vns_email) }}">
                                     <label for="vns_email" data-error="{{ $errors->first('vns_email') }}">VNS
-                                        Email</label>
+                                        Login</label>
                                 </div>
                             </div>
 
