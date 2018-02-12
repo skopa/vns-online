@@ -47,7 +47,7 @@ class PingOnlineCommand extends Command
             ->whereHas('visitTimeLines', function ($q) use ($day) {
                 /** @var Builder $q */
                 $q
-                    ->whereRaw('`days` LIKE %' . $day . '%')
+                    ->whereRaw('`days` LIKE \'%' . $day . '%\'')
                     ->whereRaw('DATE_ADD(UTC_TIME(), INTERVAL 2 HOUR) BETWEEN `from` AND `to`');
             })
             ->with('lastAction')
