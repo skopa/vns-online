@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use App\Jobs\PingOnlineJob;
 use App\User;
-use App\VisitTimeLine;
 use Illuminate\Console\Command;
 
 class PingOnlineCommand extends Command
@@ -40,7 +39,7 @@ class PingOnlineCommand extends Command
      */
     public function handle()
     {
-        $user = User::query()
+        $users = User::query()
             ->where('is_enabled', 1)
             ->whereHas('visitTimeLines', function ($q) {
                 $q->whereRaw('DATE_ADD(UTC_TIME(), INTERVAL 2 HOUR) BETWEEN `from` AND `to`');
@@ -48,10 +47,17 @@ class PingOnlineCommand extends Command
             ->with('lastAction')
             ->get();
 
-        $user->each(function (User $user){
+        $count = 0;
+
+        $users->each(function (User $user) use ($count) {
             if (rand(1, 4) < (date('i') - $user->lastAction->created_at->minute)) {
                 dispatch(new PingOnlineJob($user));
+                $count += 1;
             }
         });
+
+        echo $count;
+
+        return;
     }
 }

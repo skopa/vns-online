@@ -46,8 +46,6 @@ class PingOnlineJob implements ShouldQueue
 
         $curl->get($this->pingUrl);
 
-        //dd($curl->response);
-
         if (is_string($curl->response) && !str_contains($curl->response, 'time')) {
             $curl->post($this->loginUrl, $this->user->vns_credentials, true);
             if (str_contains($curl->getInfo()['url'], '/my')) {
