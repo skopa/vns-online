@@ -40,7 +40,7 @@ class AuthController extends Controller
         /** @var User $user */
 
         Auth::login($user);
-        return redirect()->route('home');
+        return redirect()->route('profile.show');
     }
 
     /**
