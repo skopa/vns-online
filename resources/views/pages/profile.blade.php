@@ -42,7 +42,7 @@
 
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="vns_email" type="email"
+                                    <input id="vns_email" type="text"
                                            class="{{ $errors->has('vns_email')?'invalid':'' }}"
                                            name="vns_email" value="{{ old('vns_email', $user->vns_email) }}">
                                     <label for="vns_email" data-error="{{ $errors->first('vns_email') }}">VNS
