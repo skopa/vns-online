@@ -10,7 +10,7 @@
                         <small>(VNS "online" requests)</small>
                     </div>
                     <div class="card-action">
-                        <b>{{ $requests }} minutes</b>
+                        <b>{{ $requests }} Times</b>
                     </div>
                 </div>
             </div>
