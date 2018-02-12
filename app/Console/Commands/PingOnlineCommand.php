@@ -47,7 +47,7 @@ class PingOnlineCommand extends Command
             ->whereHas('visitTimeLines', function ($q) use ($day) {
                 /** @var Builder $q */
                 $q
-                    ->whereRaw('`days` LIKE ' . $day)
+                    ->whereRaw('`days` LIKE %' . $day . '%')
                     ->whereRaw('DATE_ADD(UTC_TIME(), INTERVAL 2 HOUR) BETWEEN `from` AND `to`');
             })
             ->with('lastAction')
@@ -63,14 +63,14 @@ class PingOnlineCommand extends Command
                 $command = base_path('artisan') . ' online:user ' . $user->id . ' ' . rand(3, 30);
                 $log = storage_path('logs/cron.log');
                 exec('nohup php -f ' . $command . ' >> ' . $log . ' 2>&1 &');
-
-                //dispatch(new PingOnlineJob($user));
-
                 $count->push(1);
             }
         });
 
-        echo'Day: '. $day . ' Will be updated/All active: '. $count->count() . '/' . $users->count() . PHP_EOL;
+        echo
+            'Day: ' . $day .
+            ' Will be updated/All active: ' . $count->count() . '/' . $users->count() .
+            PHP_EOL;
 
         return;
     }
