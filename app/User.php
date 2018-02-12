@@ -58,7 +58,8 @@ class User extends Authenticatable
     public function setEmailAttribute($value)
     {
         $this->attributes['email'] = $value;
-        if (env('CHECK_DOMAIN', false)) $this->vns_email = $value;
+        if (str_contains($value, '@lpnu.ua'))
+            $this->vns_email = explode('@', $value)[0];
     }
 
     public function visitTimeLines()
