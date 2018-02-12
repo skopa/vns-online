@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Jobs\PingOnlineJob;
 use App\User;
 use Illuminate\Console\Command;
+use Illuminate\Database\Query\Builder;
 
 class PingOnlineCommand extends Command
 {
@@ -42,7 +43,10 @@ class PingOnlineCommand extends Command
         $users = User::query()
             ->where('is_enabled', 1)
             ->whereHas('visitTimeLines', function ($q) {
-                $q->whereRaw('DATE_ADD(UTC_TIME(), INTERVAL 2 HOUR) BETWEEN `from` AND `to`');
+                /** @var Builder $q */
+                $q
+                    ->whereRaw('`days` LIKE ' . date('N'))
+                    ->whereRaw('DATE_ADD(UTC_TIME(), INTERVAL 2 HOUR) BETWEEN `from` AND `to`');
             })
             ->with('lastAction')
             ->get();
