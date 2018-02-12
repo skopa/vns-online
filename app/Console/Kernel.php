@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\ChangeCourseCommand;
 use App\Console\Commands\PingOnlineCommand;
+use App\Console\Commands\PingUserOnlineCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,6 +18,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         PingOnlineCommand::class,
         ChangeCourseCommand::class,
+        PingUserOnlineCommand::class,
     ];
 
     /**

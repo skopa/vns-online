@@ -21,6 +21,7 @@ use Illuminate\Support\Collection;
  * @property Collection|array|Log logs
  * @property Log lastAction
  * @mixin Model
+ * @method static find($id)
  */
 class User extends Authenticatable
 {

@@ -30,7 +30,7 @@
                                            class="timepicker {{ $errors->has('to')?'invalid':'' }}"
                                            name="to" value="{{ old('to', $visitTimeLine->to) }}">
                                     <label data-error="{{ $errors->first('to') }}"
-                                           for="to">Active to time</label>
+                                           for="to">Active to time. Must be greater then from!</label>
                                 </div>
                             </div>
 
